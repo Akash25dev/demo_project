@@ -10,7 +10,7 @@ pipeline{
             }
             stage(build){
                    steps{
-                     sh '/home/alex/apache-maven-3.8.8/mvn install'
+                     sh 'JAVA_HOME=/home/alex/jdk-11.0.24 /home/alex/apache-maven-3.8.8/bin/mvn install'
                    }
             }
             stage(deploy){
