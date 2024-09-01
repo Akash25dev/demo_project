@@ -1,5 +1,7 @@
 pipeline{
-   agent any
+   agent{
+    label 'slave-lable'
+   }
          stages{
             stage(clone){
                    steps{
@@ -8,12 +10,12 @@ pipeline{
             }
             stage(build){
                    steps{
-                     sh 'mvn install'
+                     sh '/home/alex/apache-maven-3.8.8/mvn install'
                    }
             }
             stage(deploy){
                    steps{
-                     sh 'cp target/demo_project.war /home/akash/Documents/Maven/apache-tomcat-9.0.93/webapps'
+                     sh 'cp target/demo_project.war /home/alex/apache-tomcat-9.0.93/webapps'
                    }
             }
         }
