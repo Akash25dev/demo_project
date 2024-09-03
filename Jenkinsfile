@@ -18,5 +18,10 @@ pipeline{
                      sh 'cp target/demo_project.war /home/alex/apache-tomcat-9.0.93/webapps'
                    }
             }
+            stage('slackintegration'){
+                   steps{
+                     slackSend baseUrl: 'https://hooks.slack.com/services/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/', channel: '#jenkins-channel', color: 'good', message: 'Slack integration on Jenkins', teamDomain: 'grras', tokenCredentialId: 'bdec049d-d7de-499b-8ad1-e6c96e9fb1a6'
+                   }
+            }
         }
 }
